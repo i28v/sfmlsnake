@@ -23,7 +23,7 @@ Snake::Snake()
 		snakeBody[i] = new Sprite();
 		snakeBody[i]->setTexture(*snakeBodyTexture);
 		snakeBody[i]->setScale(2.0f, 2.0f);
-	    snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
+	        snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
 	}
 	for(int i = snakeLength; i < 255; i++)
 	{
