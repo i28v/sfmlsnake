@@ -23,7 +23,7 @@ Snake::Snake()
 		snakeBody[i] = new Sprite();
 		snakeBody[i]->setTexture(*snakeBodyTexture);
 		snakeBody[i]->setScale(2.0f, 2.0f);
-		snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
+	    snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
 	}
 	for(int i = snakeLength; i < 255; i++)
 	{
@@ -56,10 +56,10 @@ void Snake::drawTo(RenderWindow& window)
 
 void Snake::update(bool& gameOver)
 {
-	for(int i = snakeLength; i > 0; i--)
-	{
+    for(int i = snakeLength; i > 0; i--)
+    {
 		snakeBody[i]->setPosition(snakeBody[i-1]->getPosition());
-	}
+    }
 	switch(snakeDirection)
 	{
 		case Up:
@@ -77,35 +77,35 @@ void Snake::update(bool& gameOver)
 		case Right:
 			snakeBody[0]->move(32.0f, 0.0f);
 			snakeBody[0]->setTexture(*snakeHeadRightTexture);
-
 			break;
 		default:
 			break;
-	}
+	  }
 
-    for(int i = 1; i < snakeLength; i++)
-	{
-		if(snakeBody[0]->getPosition() == snakeBody[i]->getPosition())
-		{
-			gameOver = true;
-		}
-	}
-	if(snakeBody[0]->getPosition().x < 0)
-    {
-        snakeBody[0]->setPosition(640.0f, snakeBody[0]->getPosition().y);
-    }
-    if(snakeBody[0]->getPosition().x > 640.0f)
-    {
-        snakeBody[0]->setPosition(0.0f, snakeBody[0]->getPosition().y);
-    }
-    if(snakeBody[0]->getPosition().y < 0)
-    {
-        snakeBody[0]->setPosition(snakeBody[0]->getPosition().x, 640.0f);
-    }
-    if(snakeBody[0]->getPosition().y > 640)
-    {
-        snakeBody[0]->setPosition(snakeBody[0]->getPosition().x, 0.0f);
-    }
+      for(int i = 1; i < snakeLength; i++)
+	  {
+	      if(snakeBody[0]->getPosition() == snakeBody[i]->getPosition())
+		  {
+			    gameOver = true;
+		  }
+      }
+    
+   	  if(snakeBody[0]->getPosition().x < 0)
+      {
+          snakeBody[0]->setPosition(640.0f, snakeBody[0]->getPosition().y);
+      }
+      if(snakeBody[0]->getPosition().x > 640.0f)
+      {
+          snakeBody[0]->setPosition(0.0f, snakeBody[0]->getPosition().y);
+      }
+      if(snakeBody[0]->getPosition().y < 0)
+      {
+          snakeBody[0]->setPosition(snakeBody[0]->getPosition().x, 640.0f);
+      }
+      if(snakeBody[0]->getPosition().y > 640)
+      {
+          snakeBody[0]->setPosition(snakeBody[0]->getPosition().x, 0.0f);
+      }
 }
 
 FloatRect Snake::getSnakeHeadRect()
