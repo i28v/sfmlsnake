@@ -83,7 +83,6 @@ void Snake::update(bool& gameOver)
 			break;
 	}
 
-
     for(int i = 1; i < snakeLength; i++)
 	{
 		if(snakeBody[0]->getPosition() == snakeBody[i]->getPosition())
