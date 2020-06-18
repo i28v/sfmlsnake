@@ -2,35 +2,35 @@
 
 Snake::Snake()
 {
-	snakeDirection = Right;
-	snakeLength = 8;
-	snakeHeadUpTexture = new Texture();
-	snakeHeadDownTexture = new Texture();
-	snakeHeadLeftTexture = new Texture();
-	snakeHeadRightTexture = new Texture();
-	snakeBodyTexture = new Texture();
-	snakeHeadUpTexture->loadFromFile("assets/snakeheadup.png");
-	snakeHeadDownTexture->loadFromFile("assets/snakeheaddown.png");
-	snakeHeadLeftTexture->loadFromFile("assets/snakeheadleft.png");
-	snakeHeadRightTexture->loadFromFile("assets/snakeheadright.png");
-	snakeBodyTexture->loadFromFile("assets/snakebody.png");
-	snakeBody[0] = new Sprite();
-	snakeBody[0]->setTexture(*snakeHeadRightTexture);
-	snakeBody[0]->setScale(2.0f, 2.0f);
-	snakeBody[0]->setPosition(256.0f, 32.0f);
-	for(int i = 1; i < snakeLength; i++)
-	{
-	    snakeBody[i] = new Sprite();
-	    snakeBody[i]->setTexture(*snakeBodyTexture);
-            snakeBody[i]->setScale(2.0f, 2.0f);
-	    snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
-	}
-	for(int i = snakeLength; i < 255; i++)
-	{
-            snakeBody[i] = new Sprite();
-	    snakeBody[i]->setTexture(*snakeBodyTexture);
-            snakeBody[i]->setScale(2.0f, 2.0f);
-	}
+    snakeDirection = Right;
+    snakeLength = 8;
+    snakeHeadUpTexture = new Texture();
+    snakeHeadDownTexture = new Texture();
+    snakeHeadLeftTexture = new Texture();
+    snakeHeadRightTexture = new Texture();
+    snakeBodyTexture = new Texture();
+    snakeHeadUpTexture->loadFromFile("assets/snakeheadup.png");
+    snakeHeadDownTexture->loadFromFile("assets/snakeheaddown.png");
+    snakeHeadLeftTexture->loadFromFile("assets/snakeheadleft.png");
+    snakeHeadRightTexture->loadFromFile("assets/snakeheadright.png");
+    snakeBodyTexture->loadFromFile("assets/snakebody.png");
+    snakeBody[0] = new Sprite();
+    snakeBody[0]->setTexture(*snakeHeadRightTexture);
+    snakeBody[0]->setScale(2.0f, 2.0f);
+    snakeBody[0]->setPosition(256.0f, 32.0f);
+    for(int i = 1; i < snakeLength; i++)
+    {
+        snakeBody[i] = new Sprite();
+        snakeBody[i]->setTexture(*snakeBodyTexture);
+        snakeBody[i]->setScale(2.0f, 2.0f);
+        snakeBody[i]->setPosition(snakeBody[0]->getPosition().x - (float)(32 * i), 32.0f);
+    }
+    for(int i = snakeLength; i < 255; i++)
+    {
+        snakeBody[i] = new Sprite();
+	snakeBody[i]->setTexture(*snakeBodyTexture);
+        snakeBody[i]->setScale(2.0f, 2.0f);
+    }
 }
 
 Snake::~Snake()
