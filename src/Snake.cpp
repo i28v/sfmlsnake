@@ -107,13 +107,9 @@ void Snake::update(bool& gameOver)
     {
         snakeBody[0]->setPosition(snakeBody[0]->getPosition().x, 0.0f);
     }
-
-
-
 }
 
 FloatRect Snake::getSnakeHeadRect()
 {
     return snakeBody[0]->getGlobalBounds();
 }
-
